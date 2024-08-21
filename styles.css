@@ -1,0 +1,338 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Отключаем стандартную прокрутку */
+}
+
+body {
+    overflow-y: scroll;
+    /* Включаем вертикальную прокрутку */
+    scroll-snap-type: y mandatory;
+    /* Включаем snapping для секций */
+    scroll-behavior: smooth;
+    /* Плавная прокрутка между секциями */
+}
+
+.section {
+    scroll-snap-align: start;
+    /* Привязываем секцию к началу экрана */
+    width: 100vw;
+    /* Занимаем всю ширину экрана */
+    height: 100vh;
+    /* Занимаем всю высоту экрана */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* Цвет текста */
+    font-size: 2rem;
+    position: relative;
+    background-size: cover;
+    /* Растягиваем фоновое изображение на всю секцию */
+    background-position: center;
+    /* Центрируем изображение */
+    background-repeat: no-repeat;
+    /* Изображение не повторяется */
+}
+
+#section1 {
+    background-image: url('images/freepik-export-20240820214216gUG2111.jpg');
+    /* Фон для первой секции */
+}
+
+#section2 {
+    background-image: url('images/freepik-export-20240820220259Gk6Z.jpg');
+    /* Фон для второй секции */
+}
+
+#section3 {
+    background-image: url('images/1211111111.png');
+    /* Фон для третьей секции */
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    /* Полупрозрачный фон для хедера */
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.company-name {
+    font-size: 2.5rem;
+    /* Размер шрифта для названия компании */
+    font-weight: bold;
+    color: white;
+}
+
+.nav a {
+    margin: 0 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding-left: 5px;
+    padding-right: 125px;
+}
+
+.contact-info {
+    text-align: right;
+
+}
+
+.contact-info .phone {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    color: white;
+}
+
+.contact-info .address {
+    font-size: 1rem;
+    margin-right: 15px;
+    color: white;
+}
+
+
+
+
+#section1 .content {
+    position: relative;
+    z-index: 1;
+    /* Поднимаем текст над фоном */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    /* Полупрозрачный черный фон для улучшения читаемости */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-right: 500px;
+    /* Отступ от хедера */
+}
+
+#section2 .content {
+    position: relative;
+    z-index: 1;
+    /* Поднимаем текст над фоном */
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    /* Полупрозрачный черный фон для улучшения читаемости */
+    padding: 200px;
+    border-radius: 10px;
+    margin-top: 80px;
+    margin-left: 600px;
+    /* Отступ от хедера */
+}
+
+#section3 .content {
+    position: relative;
+    z-index: 1;
+    /* Поднимаем текст над фоном */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.0);
+    /* Полупрозрачный черный фон для улучшения читаемости */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-right: 10px;
+    /* Отступ от хедера */
+}
+
+#section4 .content {
+    position: relative;
+    z-index: 1;
+    /* Поднимаем текст над фоном */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.0);
+    /* Полупрозрачный черный фон для улучшения читаемости */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-right: 10px;
+    /* Отступ от хедера */
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Добавляем затемнение фона */
+    z-index: 0;
+    /* Размещаем затемнение под текстом */
+}
+
+
+
+.small {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.service-name {
+    flex: 1;
+    font-size: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.service-price {
+    flex: 0;
+    text-align: right;
+    padding-left: 50px;
+    font-size: 1.5rem;
+}
+
+.photo-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 100px;
+}
+
+/* Настройки фото */
+.photo-item {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Обеспечивает центрирование изображений */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+}
+
+.dot {
+    color: white;
+    font-size: 1.9rem;
+
+}
+
+.map-container {
+    margin-top: 20px;
+}
+
+.map-container p {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    /* Регулируйте размер логотипа по необходимости */
+
+    border-radius: 6px;
+    /* Отступ между логотипом и названием компании */
+}
+
+
+
+
+#section4 .content h4 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #66ccff;
+}
+
+/* Стили для блока с контактной информацией */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+.custom-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: #66ccff;
+}
+
+.contact-detail a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для карты */
+.map-wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.map-wrapper iframe {
+    border: 0;
+    border-radius: 10px;
+}
+
+.map-wrapper p {
+    margin-top: 10px;
+}
+
+.map-wrapper a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+.map-wrapper a:hover {
+    text-decoration: underline;
+}
