@@ -3,55 +3,49 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
-    /* Отключаем стандартную прокрутку */
+    overflow-y: auto; /* Вертикальная прокрутка */
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+    
 }
 
 body {
-    overflow-y: scroll;
-    /* Включаем вертикальную прокрутку */
-    scroll-snap-type: y mandatory;
-    /* Включаем snapping для секций */
-    scroll-behavior: smooth;
-    /* Плавная прокрутка между секциями */
+    scroll-snap-type: none; /* No snapping between sections */
+    scroll-behavior: auto; /* Normal scrolling without smooth transitions */
 }
 
 .section {
-    scroll-snap-align: start;
-    /* Привязываем секцию к началу экрана */
     width: 100vw;
-    /* Занимаем всю ширину экрана */
-    height: 100vh;
-    /* Занимаем всю высоту экрана */
+    height: auto; /* Убираем фиксированную высоту для всех секций */
+    min-height: 100vh; /* Устанавливаем минимальную высоту для секций */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden; /* Отключаем внутреннюю прокрутку секций */
     color: white;
-    /* Цвет текста */
     font-size: 2rem;
     position: relative;
     background-size: cover;
-    /* Растягиваем фоновое изображение на всю секцию */
     background-position: center;
-    /* Центрируем изображение */
     background-repeat: no-repeat;
-    /* Изображение не повторяется */
 }
 
 #section1 {
     background-image: url('images/freepik-export-20240820214216gUG2111.jpg');
-    /* Фон для первой секции */
 }
 
 #section2 {
     background-image: url('images/freepik-export-20240820220259Gk6Z.jpg');
-    /* Фон для второй секции */
+    max-height: none; /* Убираем ограничение по высоте */
+    overflow-y: auto; /* Включаем прокрутку для этой секции, если контент превышает размер */
 }
 
 #section3 {
     background-image: url('images/1211111111.png');
-    /* Фон для третьей секции */
+}
+
+#section4 {
+    background-image: url('images/1211111111.png');
 }
 
 .header {
@@ -61,105 +55,59 @@ body {
     align-items: center;
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
-    /* Полупрозрачный фон для хедера */
     position: absolute;
     top: 0;
     left: 0;
-    box-sizing: border-box;
     z-index: 1000;
+    box-sizing: border-box;
 }
 
 .company-name {
     font-size: 2.5rem;
-    /* Размер шрифта для названия компании */
     font-weight: bold;
     color: white;
 }
 
+.nav {
+    display: flex; /* Включаем Flexbox */
+    justify-content: space-between; /* Или space-around для равномерного распределения */
+    align-items: center; /* Выравнивание по вертикали */
+}
+
 .nav a {
-    margin: 0 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    padding-left: 5px;
-    padding-right: 125px;
+    display: inline-block; /* Или inline */
+    margin: 0 5px; /* Настройте отступы */
+    color: #ffffff;
+    text-decoration: none; 
+    font-size: 1.2rem;
+    margin: 0 15px;
 }
 
 .contact-info {
     text-align: right;
-
 }
 
-.contact-info .phone {
+.contact-info .phone,
+.contact-info .address {
     font-size: 1.2rem;
     margin-right: 15px;
     color: white;
 }
 
-.contact-info .address {
-    font-size: 1rem;
-    margin-right: 15px;
-    color: white;
-}
-
-
-
-
-#section1 .content {
-    position: relative;
-    z-index: 1;
-    /* Поднимаем текст над фоном */
-    text-align: center;
-    background: rgba(0, 0, 0, 0.3);
-    /* Полупрозрачный черный фон для улучшения читаемости */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 80px;
-    margin-right: 500px;
-    /* Отступ от хедера */
-}
-
-#section2 .content {
-    position: relative;
-    z-index: 1;
-    /* Поднимаем текст над фоном */
-    text-align: center;
-    background: rgba(0, 0, 0, 0);
-    /* Полупрозрачный черный фон для улучшения читаемости */
-    padding: 200px;
-    border-radius: 10px;
-    margin-top: 80px;
-    margin-left: 600px;
-    /* Отступ от хедера */
-}
-
-#section3 .content {
-    position: relative;
-    z-index: 1;
-    /* Поднимаем текст над фоном */
-    text-align: center;
-    background: rgba(0, 0, 0, 0.0);
-    /* Полупрозрачный черный фон для улучшения читаемости */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 150px;
-    margin-right: 10px;
-    /* Отступ от хедера */
-}
-
+#section1 .content,
+#section2 .content,
+#section3 .content,
 #section4 .content {
     position: relative;
     z-index: 1;
-    /* Поднимаем текст над фоном */
     text-align: center;
-    background: rgba(0, 0, 0, 0.0);
-    /* Полупрозрачный черный фон для улучшения читаемости */
+    background: rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 10px;
-    margin-top: 150px;
-    margin-right: 10px;
-    /* Отступ от хедера */
+    margin-top: 80px;
 }
+
+
 
 .section::before {
     content: '';
@@ -169,65 +117,29 @@ body {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    /* Добавляем затемнение фона */
     z-index: 0;
-    /* Размещаем затемнение под текстом */
 }
 
 
-
-.small {
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-}
-
-.service-name {
-    flex: 1;
-    font-size: 1.5rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.service-price {
-    flex: 0;
-    text-align: right;
-    padding-left: 50px;
-    font-size: 1.5rem;
-}
 
 .photo-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    box-sizing: border-box;
-    position: relative;
-    margin-top: 100px;
+    width: calc(100% - 40px); /* Уменьшите ширину на значение отступов */
+    padding: 20px; /* Добавьте отступы внутри контейнера */
+    margin: 0 auto; /* Центрируйте контейнер */
+    box-sizing: border-box; /* Убедитесь, что padding включен в ширину */
 }
 
-/* Настройки фото */
 .photo-item {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    transition: transform 0.3s ease;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Обеспечивает центрирование изображений */
 }
 
 .photo-item img {
@@ -246,7 +158,6 @@ li {
 .dot {
     color: white;
     font-size: 1.9rem;
-
 }
 
 .map-container {
@@ -258,8 +169,6 @@ li {
     margin-top: 5px;
 }
 
-
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -267,22 +176,9 @@ li {
 
 .logo {
     height: 60px;
-    /* Регулируйте размер логотипа по необходимости */
-
     border-radius: 6px;
-    /* Отступ между логотипом и названием компании */
 }
 
-
-
-
-#section4 .content h4 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #66ccff;
-}
-
-/* Стили для блока с контактной информацией */
 .contact-details {
     display: flex;
     flex-direction: column;
@@ -313,7 +209,6 @@ li {
     text-decoration: underline;
 }
 
-/* Стили для карты */
 .map-wrapper {
     max-width: 100%;
     margin: 0 auto;
@@ -324,15 +219,149 @@ li {
     border-radius: 10px;
 }
 
-.map-wrapper p {
-    margin-top: 10px;
-}
-
+.map-wrapper p,
 .map-wrapper a {
+    margin-top: 10px;
     color: #66ccff;
-    text-decoration: none;
 }
 
 .map-wrapper a:hover {
     text-decoration: underline;
+}
+
+
+
+h3 {
+    font-size: 1.2rem; /* Уменьшите размер заголовков */
+    margin-top: 15px; /* Можно уменьшить отступ сверху */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 0.9rem; /* Уменьшаем размер шрифта для аккуратного вида */
+    margin-bottom: 10px; /* Расстояние между строками */
+}
+
+.price-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.service-column, .price-column, .extra-services-column, .extra-prices-column {
+    width: 48%; /* Уменьшите ширину до 48% */
+    margin-bottom: 20px;
+}
+.price-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+.price-list-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переходить на новую строку */
+    justify-content: space-between; /* Распределяет элементы по краям */
+
+}
+
+.service-list, .price-list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+
+.service-name {
+    flex-grow: 1; /* Позволяет названию услуги занимать доступное пространство */
+}
+
+.service-price {
+    flex-shrink: 0; /* Не позволяет цене уменьшаться */
+    padding-left: 40px; /* Отступ слева для расстояния между названием и ценой */
+}
+
+.extra-services-container {
+    display: flex; /* Используем флексбокс для расположения */
+    justify-content: space-between; /* Распределяем пространство между колонками */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    gap: 40px; /* Отступ между колонками */
+}
+
+.left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-price-pair {
+    display: flex;
+    justify-content: space-between; /* Название услуги и цена по краям */
+    margin-bottom: 10px;
+}
+
+.service {
+    flex-grow: 1; /* Название услуги занимает всё доступное пространство */
+}
+
+.price {
+    flex-shrink: 0; /* Цена не уменьшается */
+    padding-left: 20px; /* Отступ слева для отделения от названия */
+    text-align: right; /* Выравнивание по правому краю */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.column {
+    width: 48%;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.service-list, .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+}
+
+.service-name {
+    flex-grow: 1;
+    white-space: nowrap; /* Запрещает перенос текста на новую строку */
+    text-overflow: ellipsis; /* Если название слишком длинное, добавляет многоточие */
+}
+
+.price-list {
+ 
+    flex-shrink: 0;
+    margin-left: 160px; /* Устанавливает расстояние между названием и ценой */
+    white-space: nowrap; /* Запрещает перенос цены на новую строку */
+    text-align: left;
+}
+
+
+
+.service-list li {
+    white-space: nowrap; /* Предотвращает перенос названия услуги на новую строку */
+    text-align: left;
+    text-overflow: ellipsis; /* Добавляет "..." в конце обрезанного текста */
+}
+
+.price-column, .service-column {
+    width: 45%; /* Увеличиваем ширину колонок для больше пространства */
 }
