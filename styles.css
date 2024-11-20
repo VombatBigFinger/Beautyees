@@ -48,19 +48,18 @@ body {
     background-image: url('images/1211111111.png');
 }
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-sizing: border-box;
+#section5 {
+    background-image: url('images/1211111111.png');
 }
+
+#section6 {
+    background-image: url('images/1211111111.png');
+    height: 120px;
+    width: 100vw;
+    min-height: 20vh;
+}
+
+
 
 .company-name {
     font-size: 2.5rem;
@@ -97,7 +96,10 @@ body {
 #section1 .content,
 #section2 .content,
 #section3 .content,
-#section4 .content {
+#section4 .content,
+#section5 .content,
+#section6 .content
+{
     position: relative;
     z-index: 1;
     text-align: center;
@@ -122,6 +124,22 @@ body {
 
 
 
+
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
 .photo-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -130,16 +148,18 @@ body {
     padding: 20px; /* Добавьте отступы внутри контейнера */
     margin: 0 auto; /* Центрируйте контейнер */
     box-sizing: border-box; /* Убедитесь, что padding включен в ширину */
+    z-index: 1;
 }
 
 .photo-item {
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .photo-item img {
@@ -149,6 +169,7 @@ body {
     object-position: center;
     display: block;
     transition: transform 0.3s ease;
+    z-index: 1;
 }
 
 .photo-item img:hover {
@@ -321,6 +342,7 @@ li {
 h2 {
     text-align: center;
     margin-bottom: 20px;
+    z-index: 1;
 }
 
 .column {
@@ -331,6 +353,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+
 }
 
 .service-list, .price-list {
@@ -364,4 +387,179 @@ h2 {
 
 .price-column, .service-column {
     width: 45%; /* Увеличиваем ширину колонок для больше пространства */
+}
+
+
+
+  
+  .promotions-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 1;
+  }
+  
+  .promotion {
+    flex: 1;
+    text-align: center;
+    z-index: 1;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .promotion img {
+    width: 100%;
+    border-radius: 10px;
+    z-index: 1;
+  }
+  
+  .promotion p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    padding: 20px;    
+    margin: 0 20px;
+  }
+
+
+
+  .hidden {
+    display: none;
+}
+/* Стили для кнопки записи */
+#booking-button {
+    background-color: #ff6f61; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    padding: 15px 30px; /* Отступы внутри кнопки */
+    font-size: 18px; /* Размер шрифта */
+    border-radius: 5px; /* Закругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+    z-index: 1;
+}
+
+#booking-button:hover {
+    background-color: #ff4a3a; /* Цвет фона при наведении */
+}
+
+/* Стили для формы */
+#booking-form {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    top: 50%; /* Центрировать по вертикали */
+    left: 50%; /* Центрировать по горизонтали */
+    transform: translate(-50%, -50%); /* Перемещение в центр */
+    background-color: white; /* Цвет фона формы */
+    border-radius: 10px; /* Закругленные углы */
+    padding: 20px; /* Отступы внутри формы */
+    width: 90%; /* Ширина формы */
+    max-width: 600px; /* Максимальная ширина */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+    z-index: 1000; /* Обеспечить, чтобы форма была поверх других элементов */
+}
+
+/* Стили для закрывающей кнопки */
+#close-button {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    font-size: 30px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    color: #333;
+}
+
+/* Стили для заголовка формы */
+#booking-form h2 {
+    margin-bottom: 20px; /* Отступ снизу */
+    font-size: 24px; /* Размер шрифта заголовка */
+    color: #333; /* Цвет заголовка */
+}
+
+/* Стили для полей ввода */
+#form input,
+#form textarea {
+    width: 100%; /* Ширина полей */
+    margin-bottom: 20px; /* Отступ снизу */
+    border: 1px solid #ccc; /* Рамка полей */
+    border-radius: 4px; /* Закругление углов полей */
+    font-size: 16px; /* Размер шрифта */
+}
+
+/* Стили для кнопки отправки */
+#form button {
+    background-color: #28a745; /* Цвет фона кнопки отправки */
+    color: #ffffff; /* Цвет текста кнопки */
+    border: none; /* Убираем рамку */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    font-size: 16px; /* Размер шрифта */
+    border-radius: 4px; /* Закругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+#form button:hover {
+    background-color: #218838; /* Цвет фона при наведении */
+}
+
+
+#overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: 999; /* Под формой */
+}
+
+
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между checkbox и текстом */
+    font-size: 14px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px; /* Отступ справа от checkbox */
+}
+
+span 
+{
+color: #333;
+white-space: nowrap;
+text-align: left;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Расстояние между полями */
+}
+
+.input-field {
+    width: 100%; /* Все поля будут одинаковой ширины */
+    max-width: 400px; /* Можно задать максимальную ширину */
+    padding: 10px;
+    box-sizing: border-box; /* Чтобы паддинги не увеличивали ширину поля */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.phone-field {
+    width: 100%; /* Аналогично задаем ширину для телефонного поля */
+}
+
+/* Для меньших экранов */
+@media (max-width: 600px) {
+    .input-field {
+        max-width: 100%; /* На мобильных устройствах поля будут занимать всю ширину контейнера */
+    }
 }
