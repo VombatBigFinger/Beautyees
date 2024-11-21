@@ -1,4 +1,4 @@
-import { OnboardingTour } from "./node_modules/light-onboarding-tour/OnboardingTour"
+import { OnboardingTour } from "./node_modules/light-onboarding-tour/OnboardingTour";
 
 
 function getVersion() {
