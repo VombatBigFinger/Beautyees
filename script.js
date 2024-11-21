@@ -16,27 +16,37 @@ console.log('Выбранная версия:', getVersion());
 
 
 function loadVersion() {
-    const version = getVersion();
 
-    if (version === 'a') {
-        // Запускаем библиотеку онбординга
-        const tour = new OnboardingTour();
-        tour.StartNewTour([
-            {
-                element: '#el1', // Существующий элемент в HTML
-                popover: {
-                    title: "Добро пожаловать",
-                    description: "Хай ЗЯБЛ",
-                    position: 'right',
+    document.addEventListener('DOMContentLoaded', () => {
+        const version = getVersion();
+        const el = document.querySelector('#el1'); // Используем const для объявления переменной
+        if (!el) {
+            console.error('Элемент #el1 не найден в DOM.');
+            return; // Прерываем выполнение, если элемент отсутствует
+        }
+        console.log('Элемент #el1 найден:', el);
+    
+        if (version === 'a') {
+            const tour = new OnboardingTour();
+            tour.StartNewTour([
+                {
+                    element: '#el1', // Существующий элемент в HTML
+                    popover: {
+                        title: "Добро пожаловать",
+                        description: "Хай ЗЯБЛ",
+                        position: 'right',
+                    },
                 },
-            },
-        ]);
-    } else {
-        console.log('Версия B: без онбординга.');
-    }
-
-    // Отправляем данные о версии в Яндекс.Метрику
-    ym(YOUR_COUNTER_ID, 'params', { version: version });
+            ]);
+        } else {
+            console.log('Версия B: без онбординга.');
+        }
+    
+        // Отправляем данные о версии в Яндекс.Метрику
+        const counterId = 98237847;
+        ym(counterId, 'params', { version: version });
+    });
+    
 }
 
 loadVersion();
