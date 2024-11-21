@@ -2,10 +2,10 @@ import { OnboardingTour } from "./libs/OnboardingTour.js";
 
 
 function getVersion() {
-    let version = localStorage.getItem('ab_version');
+    let version = sessionStorage.getItem('ab_version');
     if (!version) {
         version = Math.random() < 0.5 ? 'a' : 'b'; // С вероятностью 50% выбираем 'a' или 'b'
-        localStorage.setItem('ab_version', version);
+        sessionStorage.setItem('ab_version', version);
     }
     
     return version;
