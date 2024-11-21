@@ -7,9 +7,12 @@ function getVersion() {
         version = Math.random() < 0.5 ? 'a' : 'b'; // С вероятностью 50% выбираем 'a' или 'b'
         localStorage.setItem('ab_version', version);
     }
-    console.log('Выбранная версия:', getVersion());
+    
     return version;
 }
+
+console.log('Выбранная версия:', getVersion());
+
 
 
 function loadVersion() {
