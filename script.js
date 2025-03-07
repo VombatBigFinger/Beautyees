@@ -33,7 +33,7 @@ function loadVersion() {
                     element: '#el1', // Существующий элемент в HTML
                     popover: {
                         title: "Добро пожаловать",
-                        description: "Хай ЗЯБЛ",
+                        description: "Добро пожаловать",
                         position: 'right',
                     },
                 },
@@ -68,3 +68,50 @@ document.getElementById('form').onsubmit = function(e) {
     var form = document.getElementById('booking-form');
     form.classList.add('hidden'); // Закрыть форму после отправки
 };
+
+const phoneinput= document.getElementById('phone');
+
+
+
+
+phoneinput.addEventListener('input',function(e){
+
+ 
+
+    const value = this.value.replace(/\D/g, '');
+    let formattedValue = '+7 (' ;
+    
+    if(value.length > 1) {
+        formattedValue += value.substring(1,4) + ')';
+    }
+
+    if(value.length > 4){
+        formattedValue += ' ' + value.substring(4,7) + ' ';
+    }
+
+    if(value.length >7 ){
+        formattedValue += value.substring(7,9) + ' ';
+    }
+
+    if(value.length > 9 ){
+        formattedValue += value.substring(9,11);
+    }
+
+
+    if(value.length > 10 ){
+        this.value = formattedValue.substring(0,10);
+    }
+
+
+    this.value = formattedValue;
+
+
+
+});
+
+phoneinput.addEventListener('paste',function(e) {
+    e.preventDefault();
+});
+
+
+

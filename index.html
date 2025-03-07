@@ -217,18 +217,25 @@
         <div id="booking-form" class="hidden">
             <span id="close-button">&times;</span>
             <h2>Запись на услугу</h2>
+            <div class="modal-text">Оставьте контактные данные и в течении 5 минут мы свяжемся с вами</div>
             <form id="form">
-                <input type="text" id="name" placeholder="Введите ваше имя" class="input-field" required> 
-                <input id="phone" type="tel" placeholder="Введите ваш номер" class="input-field phone-field">
-                <textarea id="comments" placeholder="Ваши комментарии"  class="input-field"></textarea>
+                <div class="form-row"> 
+                    <div class="form-group"><input type="text" id="name" placeholder="Введите ваше имя" class="input-field" required></div>
+                    <div class="form-group"><input id="phone" type="tel" placeholder="Введите ваш номер" data-tel-input class="input-field phone-field" required inputmode="numeric" aria-invalid="false"></div>
+                </div>
+
+                <div class="form-group"><input type="text" id="comments" placeholder="Ваши комментарии"  class="input-field"></textarea></div>
                 
-                <label class="checkbox-label">
-                    <input type="checkbox" id="consent" required>
-                    <span>Соглашаюсь на обработку персональных данных</span>
+                <input type="submit" class="btn_form" value="Записаться онлайн">
+                
+
+                <label class="checkbox-label"">
+                    <input type="checkbox" class="checkbox-input">
+                    <span class="checkbox-custom"></span>
+                    Даю согласие на обработку персональных данных
                 </label>
                 
-              
-                <button type="submit">Отправить</button>
+
             </form>
         </div>
     </section>
@@ -318,17 +325,7 @@
     </div>
 
 
-    <script>
-        const input = document.querySelector("#phone");
-        const iti = window.intlTelInput(input, {
-            initialCountry: "ru", // По умолчанию код страны для России
-            nationalMode: false, // Показывает полный международный номер, включая код страны
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-        });
-    
-        // Устанавливаем значение поля с кодом +7
-        input.value = "+7";
-    </script>
+  
 
 <script src="script.js" type="module" defer></script>
 </body>
